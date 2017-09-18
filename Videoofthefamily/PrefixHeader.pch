@@ -1,0 +1,32 @@
+//
+//  PrefixHeader.pch
+//  Videoofthefamily
+//
+//  Created by 王俊钢 on 2017/9/12.
+//  Copyright © 2017年 wangjungang. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#import "YYKit.h"
+#import "Masonry.h"
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import "SDAutoLayout.h"
+#define MAS_SHORTHAND_GLOBALS
+#import "AppDelegate.h"
+#import "wangHeader.h"
+#import "MBProgressHUD+XMG.h"
+#import "strisNull.h"
+#import "CLNetworking.h"
+
+
+
+#endif /* PrefixHeader_pch */

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EDB9F6ADBD352035256804B5E2ED0E94B1CAAD4F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EDB9F6ADBD352035256804B5E2ED0E94B1CAAD4F" : 9223372036854775807,
+    "D8DF01F5B8F53A811D902C424F2E221F121ABEE4" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E5391D77-22A8-46E7-B382-13A50994C937",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EDB9F6ADBD352035256804B5E2ED0E94B1CAAD4F" : "Videoofthefamily\/",
+    "D8DF01F5B8F53A811D902C424F2E221F121ABEE4" : "Videoofthefamily\/Videoofthefamily\/utlis\/CLNetworking\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Videoofthefamily",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Videoofthefamily.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:iwenyupinlun01\/CLNetworking.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D8DF01F5B8F53A811D902C424F2E221F121ABEE4"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ZXTCiOS\/Videoofthefamily.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EDB9F6ADBD352035256804B5E2ED0E94B1CAAD4F"
+    }
+  ]
+}
