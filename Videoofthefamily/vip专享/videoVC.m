@@ -489,7 +489,7 @@ static CGFloat const NAVI_HEIGHT = 0;
     
     if ([_webView canGoBack] || [_wk_WebView canGoBack]) {
         playerVC *vc = [[playerVC alloc] init];
-        NSString *str1 = @"http://yyygwz.com/index.php?url=";
+        NSString *str1 = @"http://www.chepeijian.cn/jiexi/vip.php?url=";
         NSString *str = [NSString stringWithFormat:@"%@%@",str1,self.weburl];
         vc.urlstr = str;
         [self.navigationController pushViewController:vc animated:YES];

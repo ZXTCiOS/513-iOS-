@@ -158,6 +158,7 @@
         _passwordtext1.leftView=imageViewPwd;
         _passwordtext1.leftViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
         _passwordtext1.placeholder = @"请输入密码 长度(长度6-16位)";
+        _passwordtext1.secureTextEntry = YES;
     }
     return _passwordtext1;
 }
@@ -173,7 +174,7 @@
         _passwordtext2.leftView=imageViewPwd;
         _passwordtext2.leftViewMode=UITextFieldViewModeAlways; //此处用来设置leftview现实时机
         _passwordtext2.placeholder = @"请输入确认密码 长度(长度6-16位)";
-        
+        _passwordtext2.secureTextEntry = YES;
     }
     return _passwordtext2;
 }

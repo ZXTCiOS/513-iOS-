@@ -66,8 +66,8 @@
     CGFloat pointX, pointY;
     
     NSString *text = [NSString stringWithFormat:@"%@",self.charString];
-    NSInteger charWidth = rectWidth / text.length - 15;
-    NSInteger charHeight = rectHeight - 25;
+    NSInteger charWidth = rectWidth / text.length - 15*WIDTH_SCALE;
+    NSInteger charHeight = rectHeight - 25*WIDTH_SCALE;
     
     // 依次绘制文字
     for (NSInteger i = 0; i < text.length; i++) {
@@ -78,7 +78,7 @@
         unichar charC = [text characterAtIndex:i];
         NSString *textC = [NSString stringWithFormat:@"%C", charC];
 
-        [textC drawAtPoint:CGPointMake(pointX, pointY) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:arc4random() % 10 + 15]}];
+        [textC drawAtPoint:CGPointMake(pointX, pointY) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:arc4random() % 10 + 15*WIDTH_SCALE]}];
     }
     
     // 获取上下文
