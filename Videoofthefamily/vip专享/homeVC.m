@@ -211,7 +211,7 @@
                 else
                 {
                     vc.url = model.vurl;
-                    vc.vname = model.vname;
+                    //vc.vname = model.vname;
                     vc.viparray = [NSMutableArray array];
                     vc.urlarray = [NSMutableArray array];
                     vc.urlarray = self.urlarray;

@@ -14,6 +14,7 @@
 #import "JGPopView.h"
 #import "urlModel.h"
 #import "homeModel.h"
+#import "liveVC.h"
 
 
 static CGFloat const NAVI_HEIGHT = 0;
@@ -33,6 +34,9 @@ static CGFloat const NAVI_HEIGHT = 0;
 @property (nonatomic, strong) NSMutableArray *btnarr1;
 
 @property (nonatomic, strong) NSString *btntypestr;
+
+@property (nonatomic, strong) NSString *typestr;
+
 @end
 
 @implementation videoVC
@@ -85,7 +89,6 @@ static CGFloat const NAVI_HEIGHT = 0;
 {
     //vip
     JGPopView *view2 = [[JGPopView alloc] initWithOrigin:CGPointMake([UIScreen mainScreen].bounds.size.width-40, 60) Width:100 Height:180 Type:JGTypeOfUpCenter Color:[UIColor whiteColor]];
-    
     view2.dataArray = self.btnarr0;
     view2.fontSize = 11;
     view2.row_height = 40;
@@ -123,6 +126,9 @@ static CGFloat const NAVI_HEIGHT = 0;
         //频道切换
         homeModel *model = self.viparray[index];
         NSString *newurl = model.vurl;
+        NSString *name = model.vname;
+        self.typestr = name;
+        
         if ([[[UIDevice currentDevice]systemVersion]floatValue] >= 8.0) {
             [_wk_WebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:newurl]]];
         } else {
@@ -190,10 +196,23 @@ static CGFloat const NAVI_HEIGHT = 0;
             });
         }
     }
+    
+    else if ([keyPath isEqualToString:@"title"])
+    {
+        if (object == self.wk_WebView)
+        {
+            self.title = self.wk_WebView.title;
+        }
+        else
+        {
+            [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        }
+    }
 }
 
 - (void)dealloc {
     [_wk_WebView removeObserver:self forKeyPath:@"estimatedProgress"];
+    [_wk_WebView removeObserver:self forKeyPath:@"title"];
     [_wk_WebView stopLoading];
     [_webView stopLoading];
     _wk_WebView.UIDelegate = nil;
@@ -298,6 +317,11 @@ static CGFloat const NAVI_HEIGHT = 0;
 #pragma mark 自定义导航按钮支持侧滑手势处理
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    //TODO:kvo监听，获得页面title和加载进度值
+    
+    [self.wk_WebView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
+    
     [self addNotification];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     if (self.navigationController.viewControllers.count > 1) {
@@ -305,6 +329,7 @@ static CGFloat const NAVI_HEIGHT = 0;
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
     }
 }
+#pragma mark KVO的监听代理
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -374,10 +399,13 @@ static CGFloat const NAVI_HEIGHT = 0;
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
     //导航栏配置
     [webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable title, NSError * _Nullable error) {
-        // self.navigationItem.title = title;
+        self.navigationItem.title = title;
+        self.title = title;
     }];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];// 关闭状态栏网络请求指示
     [self showLeftBarButtonItem];
+    
+    
     
     
 //    NSString *JsStr = @"(document.getElementsByTagName(\"video\")[0]).src";
@@ -484,17 +512,23 @@ static CGFloat const NAVI_HEIGHT = 0;
 //    }
 //    else
 //    {
-    
-  //  }
+//  }
     
     if ([_webView canGoBack] || [_wk_WebView canGoBack]) {
         playerVC *vc = [[playerVC alloc] init];
-        NSString *str1 = @"http://www.chepeijian.cn/jiexi/vip.php?url=";
-        NSString *str = [NSString stringWithFormat:@"%@%@",str1,self.weburl];
-        vc.urlstr = str;
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([self.typestr isEqualToString:@"斗鱼"]||[self.typestr isEqualToString:@"虎牙"]) {
+            NSString *str = self.weburl;
+            vc.urlstr = str;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else
+        {
+            NSString *str1 = @"http://www.chepeijian.cn/jiexi/vip.php?url=";
+            NSString *str = [NSString stringWithFormat:@"%@%@",str1,self.weburl];
+            vc.urlstr = str;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -515,6 +549,8 @@ static CGFloat const NAVI_HEIGHT = 0;
 
     NSLog(@"播放结束");
 }
+
+
 
 #pragma mark - 控制屏幕旋转方法
 //是否自动旋转,返回YES可以自动旋转,返回NO禁止旋转
