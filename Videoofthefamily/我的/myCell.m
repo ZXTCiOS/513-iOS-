@@ -88,7 +88,7 @@
         _contentlab = [[UILabel alloc] init];
         _contentlab.font = [UIFont systemFontOfSize:13];
         _contentlab.textColor = [UIColor colorWithHexString:@"D2D2D2"];
-        _contentlab.text = @"更多精彩视频在513影视共享";
+//        _contentlab.text = @"更多精彩视频在513影视共享";
     }
     return _contentlab;
 }

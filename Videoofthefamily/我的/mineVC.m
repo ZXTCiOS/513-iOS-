@@ -21,6 +21,7 @@
 @property (nonatomic,strong) NSString *namestr;
 @property (nonatomic,strong) NSString *password;
 @property (nonatomic,strong) NSString *account;
+@property (nonatomic,strong) NSString *stilltime;
 
 @end
 
@@ -66,6 +67,8 @@ static NSString *mineidentfid3 = @"mineidentfid3";
             self.namestr = [datadic objectForKey:@"nikename"];
             self.password = [datadic objectForKey:@"password"];
             self.account = [datadic objectForKey:@"account"];
+            self.stilltime = [datadic objectForKey:@"stilltime"];
+            
             [self.table reloadData];
         }
         if ([[data objectForKey:@"code"] intValue]==002) {
@@ -134,6 +137,7 @@ static NSString *mineidentfid3 = @"mineidentfid3";
             cell = [[myCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.namelab.text = self.namestr;
+            cell.contentlab.text = @"请登录";
             return cell;
         }
         if (indexPath.section==1) {
@@ -158,6 +162,10 @@ static NSString *mineidentfid3 = @"mineidentfid3";
             cell = [[myCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.namelab.text = self.namestr;
+            NSString *str = self.stilltime;
+            NSInteger inter = [str intValue];
+            NSString *str1 = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd hh:mm:ss"];
+            cell.contentlab.text = [NSString stringWithFormat:@"%@%@",@"到期时间:",str1];
             return cell;
         }
         if (indexPath.section==1) {
@@ -313,6 +321,32 @@ static NSString *mineidentfid3 = @"mineidentfid3";
         [self presentViewController:control animated:YES completion:nil];
     }
 }
+
+//-(void)setdata:(systemModel *)model
+//{
+//    self.smodel = model;
+//    self.contentlab.text = model.push_content;
+//    NSString *str = model.push_addtime;
+//    NSInteger inter = [str intValue];
+//    _timelab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd hh:mm:ss"];
+//    
+//}
+
+#pragma mark - 将某个时间戳转化成 时间
+
+-(NSString *)timestampSwitchTime:(NSInteger)timestamp andFormatter:(NSString *)format{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    //format = @"YYYY-MM-dd hh:mm:ss";
+    [formatter setDateFormat:format]; // （@"YYYY-MM-dd hh:mm:ss"）----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+    [formatter setTimeZone:timeZone];
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSString *confromTimespStr = [formatter stringFromDate:confromTimesp];
+    return confromTimespStr;
+}
+
 
 #pragma mark - 控制屏幕旋转方法
 //是否自动旋转,返回YES可以自动旋转,返回NO禁止旋转
