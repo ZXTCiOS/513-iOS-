@@ -348,12 +348,11 @@
                     NSDictionary *datadic = [data objectForKey:@"data"];
                     NSString *token = [datadic objectForKey:@"token"];
                     NSString *userid = [datadic objectForKey:@"userid"];
-                    
                     NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
                     [userdefat setObject:token forKey:user_token];
                     [userdefat setObject:userid forKey:user_uid];
                     [userdefat synchronize];
-                    
+                    [self.navigationController popViewControllerAnimated:YES];
                 }
                 else
                 {

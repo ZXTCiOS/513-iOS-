@@ -137,7 +137,7 @@
     {
         _typelab = [[UILabel alloc] init];
         _typelab.font = [UIFont systemFontOfSize:15];
-        _typelab.text = @"播放器";
+        _typelab.text = @"播放器 (不能正常播放时请点击右上角vip切换线路)";
         _typelab.textColor = [UIColor colorWithHexString:@"999999"];
         _typelab.textAlignment = NSTextAlignmentLeft;
     }
@@ -173,7 +173,7 @@
     CYVIEW.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
     [headerView addSubview:CYVIEW];
     headerView.backgroundColor = [UIColor colorWithHexString:@"F5F5F5"];
-    self.typelab.frame = CGRectMake(14*WIDTH_SCALE, 180*HEIGHT_SCALE, 100, 20*HEIGHT_SCALE);
+    self.typelab.frame = CGRectMake(14*WIDTH_SCALE, 180*HEIGHT_SCALE, kScreenW-28*WIDTH_SCALE, 20*HEIGHT_SCALE);
     [headerView addSubview:self.typelab];
     return headerView;
 }

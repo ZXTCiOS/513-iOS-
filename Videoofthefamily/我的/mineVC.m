@@ -73,10 +73,12 @@ static NSString *mineidentfid3 = @"mineidentfid3";
         }
         if ([[data objectForKey:@"code"] intValue]==002) {
             [MBProgressHUD showSuccess:@"请登陆"];
+            [self.table reloadData];
         }
         
     } fail:^(NSError *error) {
         [MBProgressHUD showSuccess:@"网络错误"];
+        [self.table reloadData];
     }];
 
 }
@@ -136,7 +138,7 @@ static NSString *mineidentfid3 = @"mineidentfid3";
             myCell *cell = [tableView dequeueReusableCellWithIdentifier:mineidentfid0];
             cell = [[myCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.namelab.text = self.namestr;
+//            cell.namelab.text = self.namestr;
             cell.contentlab.text = @"请登录";
             return cell;
         }

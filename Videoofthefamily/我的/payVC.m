@@ -124,7 +124,7 @@
                 
             }];
             UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
+                [self.navigationController popViewControllerAnimated:YES];
             }];
             [control addAction:action0];
             [control addAction:action1];
