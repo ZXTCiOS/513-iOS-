@@ -132,10 +132,11 @@
         }
         else
         {
-            [MBProgressHUD showSuccess:@"请输入正确的卡密"];
+            [MBProgressHUD showSuccess:@"请输入正确的卡密" :self.view];
+            
         }
     } fail:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD showSuccess:@"网络错误" :self.view];
     }];
 }
 

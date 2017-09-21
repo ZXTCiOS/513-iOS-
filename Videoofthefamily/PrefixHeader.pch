@@ -23,10 +23,10 @@
 #define MAS_SHORTHAND_GLOBALS
 #import "AppDelegate.h"
 #import "wangHeader.h"
-#import "MBProgressHUD+XMG.h"
+//#import "MBProgressHUD+NJ.h"
 #import "strisNull.h"
 #import "CLNetworking.h"
 
-
+#import "MBProgressHUD+WJG.h"
 
 #endif /* PrefixHeader_pch */

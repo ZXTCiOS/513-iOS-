@@ -15,6 +15,8 @@
 #import "MainNavigationController.h"
 #import "SZKCleanCache.h"
 #import "aboutVC.h"
+#import "instructionVC.h"
+
 
 @interface mineVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -29,6 +31,7 @@ static NSString *mineidentfid0 = @"mineidentfid0";
 static NSString *mineidentfid1 = @"mineidentfid1";
 static NSString *mineidentfid2 = @"mineidentfid2";
 static NSString *mineidentfid3 = @"mineidentfid3";
+static NSString *mineidentfid4 = @"mineidentfid4";
 
 @implementation mineVC
 
@@ -72,12 +75,12 @@ static NSString *mineidentfid3 = @"mineidentfid3";
             [self.table reloadData];
         }
         if ([[data objectForKey:@"code"] intValue]==002) {
-            [MBProgressHUD showSuccess:@"请登陆"];
+
             [self.table reloadData];
         }
         
     } fail:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+
         [self.table reloadData];
     }];
 
@@ -117,7 +120,7 @@ static NSString *mineidentfid3 = @"mineidentfid3";
         return 1;
     }
     if (section==1) {
-        return 2;
+        return 3;
     }
     if (section==2) {
         return 1;
@@ -138,7 +141,6 @@ static NSString *mineidentfid3 = @"mineidentfid3";
             myCell *cell = [tableView dequeueReusableCellWithIdentifier:mineidentfid0];
             cell = [[myCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//            cell.namelab.text = self.namestr;
             cell.contentlab.text = @"请登录";
             return cell;
         }
@@ -154,6 +156,10 @@ static NSString *mineidentfid3 = @"mineidentfid3";
                 cell.leftimg.image = [UIImage imageNamed:@"qingchu"];
                 cell.typelab.text = @"清空缓存";
             }
+            if (indexPath.row==2) {
+                cell.leftimg.image = [UIImage imageNamed:@"图层-1"];
+                cell.typelab.text = @"使用说明";
+            }
             return cell;
         }
     }
@@ -163,7 +169,14 @@ static NSString *mineidentfid3 = @"mineidentfid3";
             myCell *cell = [tableView dequeueReusableCellWithIdentifier:mineidentfid0];
             cell = [[myCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.namelab.text = self.namestr;
+            if ([strisNull isNullToString:self.namestr]) {
+                cell.namelab.text = self.account;
+            }
+            else
+            {
+                cell.namelab.text = self.namestr;
+            }
+            
             NSString *str = self.stilltime;
             NSInteger inter = [str intValue];
             NSString *str1 = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd hh:mm:ss"];
@@ -180,6 +193,10 @@ static NSString *mineidentfid3 = @"mineidentfid3";
             if (indexPath.row==1) {
                 cell.leftimg.image = [UIImage imageNamed:@"guanyu"];
                 cell.typelab.text = @"关于我们";
+            }
+            if (indexPath.row==2) {
+                cell.leftimg.image = [UIImage imageNamed:@"图层-1"];
+                cell.typelab.text = @"使用说明";
             }
             return cell;
         }
@@ -200,7 +217,6 @@ static NSString *mineidentfid3 = @"mineidentfid3";
             cell.textLabel.textAlignment = NSTextAlignmentCenter;
             return cell;
         }
-
     }
     return nil;
 }
@@ -275,8 +291,12 @@ static NSString *mineidentfid3 = @"mineidentfid3";
                 //清楚缓存
                 [SZKCleanCache cleanCache:^{
                     NSLog(@"清除成功");
-                    [MBProgressHUD showSuccess:@"清除成功"];
+                    [MBProgressHUD showSuccess:@"清除成功" :self.view];
                 }];
+            }
+            if (indexPath.row==2) {
+                instructionVC *vc = [[instructionVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
             }
         }
         else
@@ -289,7 +309,10 @@ static NSString *mineidentfid3 = @"mineidentfid3";
                 aboutVC *vc = [[aboutVC alloc] init];
                 [self.navigationController pushViewController:vc animated:YES];
             }
-
+            if (indexPath.row==2) {
+                instructionVC *vc = [[instructionVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
         }
         }
     if (indexPath.section==2) {
@@ -298,8 +321,8 @@ static NSString *mineidentfid3 = @"mineidentfid3";
         
         //清楚缓存
         [SZKCleanCache cleanCache:^{
-            NSLog(@"清除成功");
-            [MBProgressHUD showSuccess:@"清除成功"];
+
+            [MBProgressHUD showSuccess:@"清除成功" :self.view];
         }];
     }
     if (indexPath.section==3) {
@@ -323,16 +346,6 @@ static NSString *mineidentfid3 = @"mineidentfid3";
         [self presentViewController:control animated:YES completion:nil];
     }
 }
-
-//-(void)setdata:(systemModel *)model
-//{
-//    self.smodel = model;
-//    self.contentlab.text = model.push_content;
-//    NSString *str = model.push_addtime;
-//    NSInteger inter = [str intValue];
-//    _timelab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd hh:mm:ss"];
-//    
-//}
 
 #pragma mark - 将某个时间戳转化成 时间
 

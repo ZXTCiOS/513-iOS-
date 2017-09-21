@@ -89,15 +89,17 @@
     NSDictionary *para = @{@"userid":userid,@"token":token,@"nikename":nicknamestr};
     [CLNetworkingManager postNetworkRequestWithUrlString:post_edit parameters:para isCache:NO succeed:^(id data) {
         if ([[data objectForKey:@"code"] intValue]==200) {
-            [MBProgressHUD showSuccess:@"修改成功"];
+
+            [MBProgressHUD showSuccess:@"修改成功" :self.view];
             [self.navigationController popViewControllerAnimated:YES];
         }
         else
         {
-            [MBProgressHUD showSuccess:@"请检查输入"];
+            [MBProgressHUD showSuccess:@"请检查输入" :self.view];
+
         }
     } fail:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD showSuccess:@"网络错误" :self.view];
     }];
 }
 

@@ -9,6 +9,7 @@
 #import "logupVC.h"
 #import "NNValidationView.h"
 #import "GetUUID.h"
+#import "homeVC.h"
 
 @interface logupVC ()<UITextFieldDelegate>
 @property (nonatomic,strong) UITextField *accounttext;
@@ -26,6 +27,7 @@
 
 @property (nonatomic,strong) GetUUID *getid;
 
+@property (nonatomic,strong) UILabel *testlab;
 @end
 
 @implementation logupVC
@@ -44,6 +46,7 @@
     [self.view addSubview:self.line2];
     [self.view addSubview:self.line3];
     [self.view addSubview:self.submitBtn];
+    [self.view addSubview:self.testlab];
     [self setuplayout];
     [self setupViews];
 }
@@ -115,6 +118,11 @@
         make.left.equalTo(weakSelf.view).with.offset(36*WIDTH_SCALE);
         make.right.equalTo(weakSelf.view).with.offset(-36*WIDTH_SCALE);
         make.height.mas_offset(45*HEIGHT_SCALE);
+    }];
+    [weakSelf.testlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.submitBtn.mas_bottom).with.offset(20*HEIGHT_SCALE);
+        make.left.equalTo(weakSelf.submitBtn);
+        make.right.equalTo(weakSelf.submitBtn);
     }];
 }
 
@@ -263,11 +271,27 @@
     return _submitBtn;
 }
 
+-(UILabel *)testlab
+{
+    if(!_testlab)
+    {
+        _testlab = [[UILabel alloc] init];
+        _testlab.text = @"提示:每个设备只能注册一次账号";
+        _testlab.font = [UIFont systemFontOfSize:13];
+        _testlab.backgroundColor = [UIColor whiteColor];
+        _testlab.textColor = [UIColor colorWithHexString:@"333333"];
+    }
+    return _testlab;
+}
+
+
 
 #pragma mark - 实现方法
 
+
 -(void)submitbtnclick
 {
+    
     NSString *account = @"";
     if (self.accounttext.text.length==0) {
         account = @"";
@@ -280,7 +304,7 @@
         else
         {
             account = @"";
-            [MBProgressHUD showSuccess:@"账号至少6位"];
+            [MBProgressHUD showSuccess:@"账号至少6位" :self.view];
         }
     }
     
@@ -300,7 +324,7 @@
         else
         {
             password1 = @"";
-            [MBProgressHUD showSuccess:@"密码长度6-16位"];
+           [MBProgressHUD showSuccess:@"密码长度6-16位" :self.view];
         }
     }
     
@@ -316,7 +340,8 @@
         else
         {
             password2 = @"";
-            [MBProgressHUD showSuccess:@"密码长度6-16位"];
+            [MBProgressHUD showSuccess:@"密码长度6-16位" :self.view];
+
         }
     }
     
@@ -326,7 +351,8 @@
     else
     {
         password = @"";
-        [MBProgressHUD showSuccess:@"两次密码不一致"];
+
+        [MBProgressHUD showSuccess:@"两次密码不一致" :self.view];
     }
     
     NSString *valuestr = @"";
@@ -344,7 +370,7 @@
             
             [CLNetworkingManager postNetworkRequestWithUrlString:post_register parameters:para isCache:NO succeed:^(id data) {
                 if ([[data objectForKey:@"code"] intValue]==200) {
-                    [MBProgressHUD showSuccess:@"成功"];
+                    [MBProgressHUD showSuccess:@"成功" :self.view];
                     NSDictionary *datadic = [data objectForKey:@"data"];
                     NSString *token = [datadic objectForKey:@"token"];
                     NSString *userid = [datadic objectForKey:@"userid"];
@@ -352,19 +378,24 @@
                     [userdefat setObject:token forKey:user_token];
                     [userdefat setObject:userid forKey:user_uid];
                     [userdefat synchronize];
-                    [self.navigationController popViewControllerAnimated:YES];
+                    //[self.navigationController popViewControllerAnimated:YES];
+                    
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    
                 }
                 else
                 {
-                    [MBProgressHUD showSuccess:@"注册失败，请检查输入"];
+                     [MBProgressHUD showSuccess:@"注册失败，请检查输入" :self.view];
+
                 }
             } fail:^(NSError *error) {
-                [MBProgressHUD showSuccess:@"没有网络"];
+                
+                 [MBProgressHUD showSuccess:@"没有网络" :self.view];
             }];
         }
         else
         {
-            [MBProgressHUD showSuccess:@"验证码错误"];
+             [MBProgressHUD showSuccess:@"验证码错误" :self.view];
         }
     }
     

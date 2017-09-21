@@ -22,6 +22,9 @@
 		533D6E131F67F3F800655B83 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6E0B1F67F3F800655B83 /* UIColor+HexColor.m */; };
 		533D6E141F67F3F800655B83 /* MainTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6E0E1F67F3F800655B83 /* MainTabBar.m */; };
 		533D6E151F67F3F800655B83 /* MainTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6E101F67F3F800655B83 /* MainTabBarButton.m */; };
+		534374F01F737101001741A0 /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 534374EE1F737101001741A0 /* MBProgressHUD+NJ.m */; };
+		534374F31F738068001741A0 /* MBProgressHUD+WJG.m in Sources */ = {isa = PBXBuildFile; fileRef = 534374F21F738068001741A0 /* MBProgressHUD+WJG.m */; };
+		534374F61F738A7F001741A0 /* instructionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534374F51F738A7F001741A0 /* instructionVC.m */; };
 		534F041E1F6A705E00C7F3DA /* playerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F041D1F6A705E00C7F3DA /* playerVC.m */; };
 		534F04201F6A78D200C7F3DA /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534F041F1F6A78D200C7F3DA /* MediaPlayer.framework */; };
 		534F04711F6BD4A700C7F3DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 534F04701F6BD4A700C7F3DA /* Assets.xcassets */; };
@@ -36,7 +39,6 @@
 		534F04A81F6F84CC00C7F3DA /* protocolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F04A71F6F84CC00C7F3DA /* protocolVC.m */; };
 		534F04AD1F6F915B00C7F3DA /* bannerLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F04AA1F6F915B00C7F3DA /* bannerLab.m */; };
 		534F04AE1F6F915B00C7F3DA /* xieyiScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F04AC1F6F915B00C7F3DA /* xieyiScrollView.m */; };
-		534F04CC1F6FA7CA00C7F3DA /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 534F04C11F6FA7CA00C7F3DA /* README.md */; };
 		534F04CD1F6FA7CA00C7F3DA /* CLNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F04C41F6FA7CA00C7F3DA /* CLNetworkingManager.m */; };
 		534F04CE1F6FA7CA00C7F3DA /* CLImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F04C71F6FA7CA00C7F3DA /* CLImageModel.m */; };
 		534F04CF1F6FA7CA00C7F3DA /* NSString+Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 534F04C91F6FA7CA00C7F3DA /* NSString+Cache.m */; };
@@ -112,6 +114,12 @@
 		533D6E0E1F67F3F800655B83 /* MainTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBar.m; sourceTree = "<group>"; };
 		533D6E0F1F67F3F800655B83 /* MainTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarButton.h; sourceTree = "<group>"; };
 		533D6E101F67F3F800655B83 /* MainTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarButton.m; sourceTree = "<group>"; };
+		534374EE1F737101001741A0 /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
+		534374EF1F737101001741A0 /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
+		534374F11F738068001741A0 /* MBProgressHUD+WJG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+WJG.h"; sourceTree = "<group>"; };
+		534374F21F738068001741A0 /* MBProgressHUD+WJG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+WJG.m"; sourceTree = "<group>"; };
+		534374F41F738A7F001741A0 /* instructionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = instructionVC.h; sourceTree = "<group>"; };
+		534374F51F738A7F001741A0 /* instructionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = instructionVC.m; sourceTree = "<group>"; };
 		534F041C1F6A705E00C7F3DA /* playerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playerVC.h; sourceTree = "<group>"; };
 		534F041D1F6A705E00C7F3DA /* playerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playerVC.m; sourceTree = "<group>"; };
 		534F041F1F6A78D200C7F3DA /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -139,7 +147,6 @@
 		534F04AB1F6F915B00C7F3DA /* xieyiScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xieyiScrollView.h; sourceTree = "<group>"; };
 		534F04AC1F6F915B00C7F3DA /* xieyiScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xieyiScrollView.m; sourceTree = "<group>"; };
 		534F04C01F6FA7CA00C7F3DA /* CLNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLNetworking.h; sourceTree = "<group>"; };
-		534F04C11F6FA7CA00C7F3DA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		534F04C31F6FA7CA00C7F3DA /* CLNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLNetworkingManager.h; sourceTree = "<group>"; };
 		534F04C41F6FA7CA00C7F3DA /* CLNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLNetworkingManager.m; sourceTree = "<group>"; };
 		534F04C61F6FA7CA00C7F3DA /* CLImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLImageModel.h; sourceTree = "<group>"; };
@@ -281,7 +288,6 @@
 				539AC5E21F67FC4700636086 /* vip专享 */,
 				539AC5E31F67FC4700636086 /* 我的 */,
 				533D6DFA1F67EDED00655B83 /* define */,
-				533D6DFB1F67EDED00655B83 /* category */,
 				533D6DFC1F67EDED00655B83 /* tabbar */,
 				537F72DD1F694C0C007793B6 /* utlis */,
 				533D6DFE1F67EDED00655B83 /* BASE */,
@@ -327,13 +333,6 @@
 				537F72A61F68400C007793B6 /* wangHeader.h */,
 			);
 			path = define;
-			sourceTree = "<group>";
-		};
-		533D6DFB1F67EDED00655B83 /* category */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = category;
 			sourceTree = "<group>";
 		};
 		533D6DFC1F67EDED00655B83 /* tabbar */ = {
@@ -409,7 +408,6 @@
 			isa = PBXGroup;
 			children = (
 				534F04C01F6FA7CA00C7F3DA /* CLNetworking.h */,
-				534F04C11F6FA7CA00C7F3DA /* README.md */,
 				534F04C21F6FA7CA00C7F3DA /* Request */,
 				534F04C51F6FA7CA00C7F3DA /* Tools */,
 			);
@@ -471,6 +469,8 @@
 				534F04AC1F6F915B00C7F3DA /* xieyiScrollView.m */,
 				537F72B31F6904BE007793B6 /* NNValidationView.h */,
 				537F72B41F6904BE007793B6 /* NNValidationView.m */,
+				534374F11F738068001741A0 /* MBProgressHUD+WJG.h */,
+				534374F21F738068001741A0 /* MBProgressHUD+WJG.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -527,6 +527,8 @@
 				537F72D51F694688007793B6 /* aboutVC.m */,
 				537F72D71F69469A007793B6 /* payVC.h */,
 				537F72D81F69469A007793B6 /* payVC.m */,
+				534374F41F738A7F001741A0 /* instructionVC.h */,
+				534374F51F738A7F001741A0 /* instructionVC.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -561,6 +563,8 @@
 		537F72DD1F694C0C007793B6 /* utlis */ = {
 			isa = PBXGroup;
 			children = (
+				534374EF1F737101001741A0 /* MBProgressHUD+NJ.h */,
+				534374EE1F737101001741A0 /* MBProgressHUD+NJ.m */,
 				534F04BF1F6FA7CA00C7F3DA /* CLNetworking */,
 				537F72DE1F694C0C007793B6 /* MBProgressHUD+XMG.h */,
 				537F72DF1F694C0C007793B6 /* MBProgressHUD+XMG.m */,
@@ -897,8 +901,8 @@
 				534F04A81F6F84CC00C7F3DA /* protocolVC.m in Sources */,
 				534F049F1F6EA96B00C7F3DA /* JPLabel.m in Sources */,
 				537F72D01F69331F007793B6 /* ModifyVC.m in Sources */,
-				534F04CC1F6FA7CA00C7F3DA /* README.md in Sources */,
 				534F04921F6CE92600C7F3DA /* GetUUID.m in Sources */,
+				534374F31F738068001741A0 /* MBProgressHUD+WJG.m in Sources */,
 				537F72AC1F68D90A007793B6 /* LoginVC.m in Sources */,
 				534F04861F6CDAE000C7F3DA /* homeModel.m in Sources */,
 				534F04D01F6FA7CA00C7F3DA /* NSString+CLTools.m in Sources */,
@@ -907,8 +911,10 @@
 				537F72CA1F692C67007793B6 /* myinfoCell0.m in Sources */,
 				537F72AF1F68FF61007793B6 /* logupVC.m in Sources */,
 				533D6DCF1F67EC2D00655B83 /* ViewController.m in Sources */,
+				534374F01F737101001741A0 /* MBProgressHUD+NJ.m in Sources */,
 				533D6E021F67EF0F00655B83 /* BaseViewController.m in Sources */,
 				534F04AE1F6F915B00C7F3DA /* xieyiScrollView.m in Sources */,
+				534374F61F738A7F001741A0 /* instructionVC.m in Sources */,
 				537F72CD1F692C72007793B6 /* myinfoCell1.m in Sources */,
 				537F72C71F692AB9007793B6 /* myinfoVC.m in Sources */,
 				533D6E121F67F3F800655B83 /* MainTabBarController.m in Sources */,

@@ -97,7 +97,7 @@
             }
         }
     } fail:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD showSuccess:@"网络错误" :self.view];
     }];
 }
 
@@ -110,7 +110,7 @@
         flowLayout.headerReferenceSize = CGSizeMake(kScreenW, 205*HEIGHT_SCALE);//头部大小
         _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH) collectionViewLayout:flowLayout];
         //定义每个UICollectionView 的大小
-        flowLayout.itemSize = CGSizeMake(kScreenW/3-2, 90*HEIGHT_SCALE);
+        flowLayout.itemSize = CGSizeMake(kScreenW/3-2, 110*HEIGHT_SCALE);
         //定义每个UICollectionView 横向的间距
         flowLayout.minimumLineSpacing = 1;
         //定义每个UICollectionView 纵向的间距
@@ -222,8 +222,7 @@
             }
             else
             {
-                [MBProgressHUD showSuccess:@"请先充值"];
-                
+                [MBProgressHUD showSuccess:@"请先充值" :self.view];
             }
         } fail:^(NSError *error) {
             

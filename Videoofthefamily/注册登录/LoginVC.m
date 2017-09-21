@@ -244,12 +244,14 @@
             [self.navigationController popViewControllerAnimated:YES];
         }
         if ([[data objectForKey:@"code"] intValue]==204) {
-            [MBProgressHUD showSuccess:@"账号或密码错误"];
+            //[MBProgressHUD showSuccess:@"账号或密码错误"];
+            [MBProgressHUD showSuccess:@"账号或密码错误" :self.view];
         }
         //hide
         [_hudView hide];
     } fail:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+
+        [MBProgressHUD showSuccess:@"网络错误" :self.view];
         //hide
         [_hudView hide];
     }];

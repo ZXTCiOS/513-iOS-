@@ -37,7 +37,7 @@
         if ([[data objectForKey:@"code"] intValue]==200) {
             NSDictionary *dic = [data objectForKey:@"data"];
             NSString *str = [dic objectForKey:@"mintro"];
-            str = @"      513影视共享”是一个收藏各种视频播放器的应用，如爱奇艺、腾讯视频、优酷、芒果TV等等主流视频播放器。致力为用户打造一款主流全影视APP。\n      快向朋友推荐我吧！";
+           // str = @"      513影视共享”是一个收藏各种视频播放器的应用，如爱奇艺、腾讯视频、优酷、芒果TV等等主流视频播放器。致力为用户打造一款主流全影视APP。\n      快向朋友推荐我吧！";
             
             [self.contentlab setText:str];
             NSString *imgstr = [dic objectForKey:@"mimg"];
@@ -45,7 +45,7 @@
             [self.aboutimg sd_setImageWithURL:[NSURL URLWithString:imgstr]];
         }
     } fail:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD showSuccess:@"网络错误" :self.view];
     }];
 }
 

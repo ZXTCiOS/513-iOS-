@@ -245,26 +245,29 @@
             
             [CLNetworkingManager postNetworkRequestWithUrlString:post_edit parameters:para isCache:NO succeed:^(id data) {
                 if ([[data objectForKey:@"code"] intValue]==200) {
-                    [MBProgressHUD showSuccess:@"修改成功"];
+
+                    [MBProgressHUD showSuccess:@"修改成功" :self.view];
                 }
                 else
                 {
-                    [MBProgressHUD showSuccess:@"请检查输入"];
+                    [MBProgressHUD showSuccess:@"请检查输入" :self.view];
+                    
                 }
             } fail:^(NSError *error) {
-                [MBProgressHUD showSuccess:@"网络错误"];
+                [MBProgressHUD showSuccess:@"网络错误" :self.view];
             }];
         }
         else
         {
-            [MBProgressHUD showSuccess:@"两次新密码输入不一致"];
+               [MBProgressHUD showSuccess:@"两次密码输入不一致" :self.view];
         }
         
         
     }
     else
     {
-        [MBProgressHUD showSuccess:@"原密码错误"];
+        [MBProgressHUD showSuccess:@"原密码错误" :self.view];
+
     }
     
     
