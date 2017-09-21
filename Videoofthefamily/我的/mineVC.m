@@ -157,7 +157,7 @@ static NSString *mineidentfid4 = @"mineidentfid4";
                 cell.typelab.text = @"清空缓存";
             }
             if (indexPath.row==2) {
-                cell.leftimg.image = [UIImage imageNamed:@"图层-1"];
+                cell.leftimg.image = [UIImage imageNamed:@"shiyong"];
                 cell.typelab.text = @"使用说明";
             }
             return cell;
@@ -195,7 +195,7 @@ static NSString *mineidentfid4 = @"mineidentfid4";
                 cell.typelab.text = @"关于我们";
             }
             if (indexPath.row==2) {
-                cell.leftimg.image = [UIImage imageNamed:@"图层-1"];
+                cell.leftimg.image = [UIImage imageNamed:@"shiyong"];
                 cell.typelab.text = @"使用说明";
             }
             return cell;
