@@ -405,42 +405,17 @@ static CGFloat const NAVI_HEIGHT = 0;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];// 关闭状态栏网络请求指示
     [self showLeftBarButtonItem];
     
-    
-    
-    
 //    NSString *JsStr = @"(document.getElementsByTagName(\"video\")[0]).src";
 //    [webView evaluateJavaScript:JsStr completionHandler:^(id _Nullable response, NSError * _Nullable error) {
 //        if(![response isEqual:[NSNull null]] && response != nil){
 //            //截获到视频地址了
 //            NSLog(@"response == %@",response);
-//            
-//            
-//            
-//            
-//            
-//            
-////           // NSString *kit = [NSString stringWithFormat:@"%@",response];
-////            
-////            NSString *str1 = @"http://yyygwz.com/index.php?url=";
-////          //  NSString *str2 = [NSString stringWithFormat:@"%@",self.url];
-////            
-////            NSString *str = [NSString stringWithFormat:@"%@%@",str1,self.weburl];
-////            
-////            NSLog(@"url-------%@",str);
-////            
-////           // str = @"https://www.baidu.com";
-////            
-////           // if (kit.length!=0) {
-////                [_wk_WebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-////                [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-////                
-//////            }
-// 
+//
 //        }else{
 //            //没有视频链接
 //        }
 //    }];
-    
+//
 }
 // 主机地址被重定向时调用
 - (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(null_unspecified WKNavigation *)navigation
