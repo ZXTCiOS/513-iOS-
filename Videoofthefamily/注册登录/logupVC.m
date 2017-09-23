@@ -383,6 +383,10 @@
                     [self.navigationController popToRootViewControllerAnimated:YES];
                     
                 }
+                else if ([[data objectForKey:@"code"] intValue]==203)
+                {
+                    [MBProgressHUD showSuccess:@"已注册" :self.view];
+                }
                 else
                 {
                      [MBProgressHUD showSuccess:@"注册失败，请检查输入" :self.view];
